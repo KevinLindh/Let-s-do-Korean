@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+}
+
+.goToSection{
+   color: black;
+   background: sandybrown;
+   padding: 15px; 
+   text-align: center;
+}
+
+.hangeulh2{
+    text-align: center;
+}
+
+.hangeulDiv{
+    padding: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px 40px; 
+}
+
+.hangeul{
+    width: 150px;
+    text-align: center;
+    background: lightgoldenrodyellow;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.hangeulRev{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hangeulTest{
+    color: black;
+    margin-left: 10px;
+    background: grey;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-decoration: none;
+}
+
+.hangeulTest:hover{
+    background-color: azure;
+    cursor: pointer;
+}

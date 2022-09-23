@@ -1,15 +1,25 @@
 <%- include('partials/header') -%>
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
+<% let current = 1 %>
+<% function next(){ return console.log(2)} %>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="middle">
+      <div class="hangeulRev">
+      <h2 class="hangeulh2">Review Hangeul</h2>
+      <a class="hangeulTest" href="/hangeul/test">Go to test</a>
     </div>
-  </div>  
+      <div class="hangeulDiv">
+        <% let score = 0%>
+        <% let newArr = Object.keys(hangeul[0].hangeul) %>
+        <% for(let i = 1; i < newArr.length + 1; i++){ %>
+          <div class="hangeul">
+            <h2><%- hangeul[0].hangeul[i][0] -%></h2>
+            <h2><%- hangeul[0].hangeul[i][1] -%></h2>
+            <p><%- hangeul[0].hangeul[i][2] -%></p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
 <%- include('partials/footer') -%>

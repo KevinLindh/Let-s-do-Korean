@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
+
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
             <a href="/post/<%= posts[i]._id%>">
@@ -9,6 +10,7 @@
             </a>
           </li>
         <% } %>
+        <a class="goToSection" href="/hangeul">Section 1: Hangeul</a>
         </ul>
     </div>
   </div>  

@@ -1,0 +1,29 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <ul class="row list-unstyled">
+        <% const hangeulKeys = Object.keys(hangeul[0].hangeul) %>
+        <% let answer = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] %>
+        <% for(let i=0; i<10; i++) {%>
+          <% const selected = Math.ceil(Math.random()*hangeulKeys.length) %>
+          <% let fourRandom = [] %>
+          <% while(fourRandom.length <4) {%>
+            <% const randomVal = Math.ceil(Math.random()*hangeulKeys.length) %>
+            <% if(!fourRandom.includes(randomVal) && randomVal !== selected){fourRandom.push(randomVal)}}%>
+            <% let fifth = Math.floor(Math.random()*5) %>
+            <% fourRandom.splice(fifth, 0, selected) %>
+          <li class="col-6 justify-content-between mt-5">   
+            <%= hangeul[0].hangeul[selected][0] %> 
+            <label for="">Choose yout answer:</label>
+              <select name=<% answer %>>
+            <% for(let j=0; j<fourRandom.length; j++){ %>
+              <option value=<%= hangeul[0].hangeul[fourRandom[j]][1] %>> <%= hangeul[0].hangeul[fourRandom[j]][1] %> </a>
+            <% } %>
+          </select> 
+          </li>
+        <% } %>
+        </ul>
+        <button>Submit answers</button>
+    </div>
+  </div>  
+<%- include('partials/footer') -%>
