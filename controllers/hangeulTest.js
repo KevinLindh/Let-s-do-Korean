@@ -5,17 +5,18 @@ const Result = require("../models/Result")
 module.exports = {
   getHangeulTest: async (req, res) => {
     try {
+      const user = await User.find();
       const hangeul = await hangeulTest.find();
-      res.render("hangeulTest.ejs", { hangeul: hangeul });
+      res.render("hangeulTest.ejs", { hangeul: hangeul});
     } catch (err) {
       console.log(err);
     }
   },
   getHangeulReview: async (req, res) => {
     try {
-      const user = await User.find();
+      console.log(req)
       const hangeul = await hangeulTest.find();
-      res.render("hangeulReview.ejs", { user, hangeul: hangeul });
+      res.render("hangeulReview.ejs", {hangeul: hangeul });
     } catch (err) {
       console.log(err);
     }
