@@ -5,6 +5,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/", ensureAuth, hangeulController.getHangeulTest);
 router.get("/test", ensureAuth, hangeulController.getHangeulReview)
-// router.post("/result", ensureAuth, hangeulController.getResultResult);
+router.post("/result", ensureAuth, hangeulController.postHangeulResult);
 
 module.exports = router;

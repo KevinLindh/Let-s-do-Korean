@@ -1,9 +1,18 @@
 <%- include('partials/header') -%>
+  <div class="overlay">
+    <% for (let i = 0; i < 10; i++){ %>
+    <div>
+      <li class="col-6 justify-content-between mt-5">
+        <span id=question<%= i %>></span>   
+        <span id=check<%= i %>></span>
+      </li>
+    </div>
+    <% } %>
+  </div>
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
         <% const hangeulKeys = Object.keys(hangeul[0].hangeul) %>
-        <% let answer = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] %>
         <% for(let i=0; i<10; i++) {%>
           <% const selected = Math.ceil(Math.random()*hangeulKeys.length) %>
           <% let fourRandom = [] %>
@@ -12,24 +21,53 @@
             <% if(!fourRandom.includes(randomVal) && randomVal !== selected){fourRandom.push(randomVal)}}%>
             <% let fifth = Math.floor(Math.random()*5) %>
             <% fourRandom.splice(fifth, 0, selected) %>
-          <li class="col-6 justify-content-between mt-5">   
-            <%= hangeul[0].hangeul[selected][0] %> 
-            <label for="">Choose yout answer:</label>
-              <select name=<% answer %>>
+          <li class="col-6 justify-content-between mt-5" value=<%= selected %> id=compare<%= i %>>   
+            <span><%= hangeul[0].hangeul[selected][0] %></span>
+          </li>
+            <label for="">Choose your answer:</label>
+              <select id=answer<%= i %>>
             <% for(let j=0; j<fourRandom.length; j++){ %>
+              <% if(j === 0){ %>
+                <option value=<%= hangeul[0].hangeul[fourRandom[j]][1] %> selected="selected"> <%= hangeul[0].hangeul[fourRandom[j]][1] %> </a>
+              <% } else { %>
               <option value=<%= hangeul[0].hangeul[fourRandom[j]][1] %>> <%= hangeul[0].hangeul[fourRandom[j]][1] %> </a>
+              <% } %>
             <% } %>
           </select> 
-          </li>
+          
         <% } %>
         </ul>
-        <!-- <form
-        action="/post/result/<%=  %>?_method=Post"
-        method="POST"
-        class="col-3"
-        > -->
-        <button>Submit answers</button>
-        </form>
+        <button onclick="grab()">Submit answers</button>
     </div>
-  </div>  
+  </div>
+  <script> 
+    function grab(){
+      const hangeul = <%- JSON.stringify(hangeul[0].hangeul) %>;
+      const test = <%- JSON.stringify(hangeul[0].id) %>;
+      const user = <%- JSON.stringify(user.id) %>;
+      const selected = [];
+      correct = 0;
+      for(let i = 0; i < 10; i++){
+        const compare = document.getElementById(`compare${i}`).value;
+        const answer = document.getElementById(`answer${i}`).value;
+        document.querySelector(`#question${i}`).innerHTML = hangeul[compare][0];
+        document.querySelector(`#check${i}`).innerHTML = answer;
+        if(hangeul[compare.toString()][1] === answer){
+          selected.push(true);
+          correct++;
+        } else {
+          selected.push(false)
+        } 
+      }
+      document.querySelector(".container").classList.add("hide");
+      document.querySelector(".overlay").style.display = "block";
+      console.log(selected)
+    }
+    // $.post("http://localhost:2121/hangeul/result"), {test: test,
+    //      score: selected,
+    //      user: user,}
+    //create a overlay which shows if right answer or wrong answer
+    //if over 60% give submit option
+    //else give retake option which reroutes back to test page
+    </script>  
 <%- include('partials/footer') -%>

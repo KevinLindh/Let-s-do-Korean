@@ -7,21 +7,22 @@ module.exports = {
     try {
       const user = await User.find();
       const hangeul = await hangeulTest.find();
-      res.render("hangeulTest.ejs", { hangeul: hangeul});
+      res.render("hangeulTest.ejs", { hangeul: hangeul, user: req.user});
     } catch (err) {
       console.log(err);
     }
   },
   getHangeulReview: async (req, res) => {
     try {
-      console.log(req)
+      console.log(req.user._id)
+      const user = await User.find();
       const hangeul = await hangeulTest.find();
-      res.render("hangeulReview.ejs", {hangeul: hangeul });
+      res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
-  getHangeulResult: async (req, res) => {
+  postHangeulResult: async (req, res) => {
     try {
       await Result.create({
         test: req.body.test,
