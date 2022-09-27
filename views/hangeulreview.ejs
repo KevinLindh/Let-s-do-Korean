@@ -1,13 +1,23 @@
 <%- include('partials/header') -%>
   <div class="overlay">
+    <h2 id="correct" value=""></h2>
     <% for (let i = 0; i < 10; i++){ %>
     <div>
       <li class="col-6 justify-content-between mt-5">
         <span id=question<%= i %>></span>   
         <span id=check<%= i %>></span>
+        <span id=correct<%= i %>></span>
       </li>
     </div>
     <% } %>
+    <form action="/hangeul/result" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="test" class="form-label">Test</label>
+                  <input type="text" class="form-control" id="test" name="test" value="hangeul">
+              </div>
+              <button type="submit" class="btn btn-primary hide" id="pass" value="Upload">Submit</button>
+      </form>
+    <a id="fail" class="hangeulTest hide" href="/hangeul/test">Retake test</a>
   </div>
   <div class="container">
     <div class="row justify-content-center mt-5">
@@ -59,15 +69,18 @@
           selected.push(false)
         } 
       }
+      const passFail = (correct/selected.length)*100;
       document.querySelector(".container").classList.add("hide");
       document.querySelector(".overlay").style.display = "block";
+      document.querySelector("#correct").innerHTML = `Correct: ${passFail}%`
+      document.querySelector("#correct").value = passFail;
+      // document.querySelector(".correct").value = passFail;
+      if(passFail >= 60){
+        document.querySelector("#pass").classList.remove("hide");
+      } else {
+        document.querySelector("#fail").classList.remove("hide");
+      }
       console.log(selected)
     }
-    // $.post("http://localhost:2121/hangeul/result"), {test: test,
-    //      score: selected,
-    //      user: user,}
-    //create a overlay which shows if right answer or wrong answer
-    //if over 60% give submit option
-    //else give retake option which reroutes back to test page
     </script>  
 <%- include('partials/footer') -%>

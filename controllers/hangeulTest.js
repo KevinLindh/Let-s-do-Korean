@@ -22,13 +22,14 @@ module.exports = {
       console.log(err);
     }
   },
-  postHangeulResult: async (req, res) => {
+  createHangeulResult: async (req, res) => {
     try {
-      await Result.create({
-        test: req.body.test,
-        score: req.body.score,
-        user: req.user.id,
-      });
+      console.log(req.user)
+      // await Result.create({
+      //   test: req.body.test,
+      //   score: req.body.score,
+      //   user: req.user.id,
+      //  });
       console.log("Result has been added!");
       res.redirect("/profile");
     } catch (err) {
