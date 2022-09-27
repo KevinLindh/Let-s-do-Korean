@@ -1,6 +1,37 @@
-body{
+* {
     margin: 0;
+    padding: 0;
+  }
+
+main{
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.75), 
+        rgba(0, 0, 0, 0.75)
+      ), url(../imgs/koreacastle.jpg) no-repeat center center fixed;
+      
+    min-height: 100vh;
+    color: white;
 }
+
+.containerNav{
+    height: 50px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+    background-color: rgba(244, 164, 96, 0.50);
+    padding: 15px; 
+   text-align: center;
+   text-decoration: none;
+   color: black;
+ }
 
 .goToSection{
    color: black;
@@ -24,6 +55,7 @@ body{
 
 .hangeul{
     width: 150px;
+    color: black;
     text-align: center;
     background: lightgoldenrodyellow;
     border: 2px solid black;
@@ -69,5 +101,6 @@ body{
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   }
   #fail{
-    margin-left: 50px;
+    margin:auto;
+    margin-left: 50%;
   }

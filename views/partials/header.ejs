@@ -26,10 +26,18 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="container">
+    <header class="containerNav">
+      <nav>
       <div class="text-center">
-        <h1 class=""><a href="/profile">Let's do Korean</a></h1>
+        <ul class="navigation">
+          <li>Current user: <%= user.userName %></li>
+          <li>Stages complete: <%= user.stage %></li>
+          <li>Points: <%= user.points %></li>
+          <li><a href="/profile">Return to Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
       </div>
+    </nav>
     </header>
   </body>
 </html>

@@ -14,7 +14,6 @@ module.exports = {
   },
   getHangeulReview: async (req, res) => {
     try {
-      console.log(req.user._id)
       const user = await User.find();
       const hangeul = await hangeulTest.find();
       res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
@@ -24,7 +23,20 @@ module.exports = {
   },
   createHangeulResult: async (req, res) => {
     try {
-      console.log(req.user)
+      if(req.user.stage < 1){
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          $inc: { stage: 1 },
+        }
+      );}
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          $inc: { points: 50 },
+        }
+      );
+      console.log("stage +1");
       // await Result.create({
       //   test: req.body.test,
       //   score: req.body.score,
