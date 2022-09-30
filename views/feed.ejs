@@ -2,15 +2,13 @@
 <main>
   <div class="container">
       <ul class="row list-unstyled">
-        <a class="goToSection" href="/hangeul">Section 1: Hangeul</a>
-        <a class="inactiveLink" href="/hangeul" >Section 2: Verbs</a>
-        <a class="inactiveLink" href="/hangeul" >Section 3: Vocabulary 1</a>
-        <a class="inactiveLink" href="/hangeul" >Section 4: Vocabulary 2</a>
-        <a class="inactiveLink" href="/hangeul" >Section 5: Numbers</a>
-        <a class="inactiveLink" href="/hangeul" >Section 6: Time</a>
-        <a class="inactiveLink" href="/hangeul" >Section 7: Verbs 2</a>
-        <a class="inactiveLink" href="/hangeul" >Section 8: Vocabulary 3</a>
-        <a class="inactiveLink" href="/hangeul" >Section 9: Vocabulary 4</a>
+        <% for(let i = 0; i < review[0].sections.length; i++){ %>
+          <% if(i <= user.stage){ %>
+          <a class="goToSection" href="/hangeul/<%= i %>">Section <%= i+1 %>: <%= review[0].sections[i] %></a>
+          <% }else{ %>
+            <a class="inactiveLink" href="/hangeul/<%= i %>">Section <%= i+1 %>: <%= review[0].sections[i] %></a>
+          <% } %>
+        <% } %>
       </ul>
   </div>  
 </main>

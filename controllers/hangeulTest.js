@@ -1,12 +1,20 @@
-const hangeulTest = require("../models/hangeulTest");
+const hangeulTest = require("../models/HangeulTest");
 const User = require("../models/User");
-const Result = require("../models/Result")
+const Reviews = require("../models/Reviews")
 
 module.exports = {
+  // getPost: async (req, res) => {
+  //   try {
+  //     const post = await Post.findById(req.params.id);
+  //     res.render("post.ejs", { post: post, user: req.user });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   getHangeulTest: async (req, res) => {
     try {
       const user = await User.find();
-      const hangeul = await hangeulTest.find();
+      const hangeul = await hangeulTest.find({ "section": req.params.section });
       res.render("hangeulTest.ejs", { hangeul: hangeul, user: req.user});
     } catch (err) {
       console.log(err);
@@ -16,6 +24,7 @@ module.exports = {
     try {
       const user = await User.find();
       const hangeul = await hangeulTest.find();
+      console.log(hangeul)
       res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
     } catch (err) {
       console.log(err);
@@ -37,7 +46,7 @@ module.exports = {
         }
       );
       console.log("stage +1");
-      // await Result.create({
+      // await Results.create({
       //   test: req.body.test,
       //   score: req.body.score,
       //   user: req.user.id,
