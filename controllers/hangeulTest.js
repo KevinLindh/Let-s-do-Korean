@@ -23,7 +23,7 @@ module.exports = {
   getHangeulReview: async (req, res) => {
     try {
       const user = await User.find();
-      const hangeul = await hangeulTest.find();
+      const hangeul = await hangeulTest.find({ "section": req.params.section });
       console.log(hangeul)
       res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
     } catch (err) {

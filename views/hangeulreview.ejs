@@ -11,7 +11,7 @@
       </li>
     </div>
     <% } %>
-    <form action="/hangeul/result" enctype="multipart/form-data" method="POST">
+    <form action="/hangeul/result/<%= hangeul[0].section  %>" enctype="multipart/form-data" method="POST">
               <div class="hide">
                   <label for="test">Test</label>
                   <input type="text" class="form-control" id="test" name="test" value="hangeul">
@@ -22,11 +22,11 @@
               </div>
               <button type="submit" class="btn btn-primary hide" id="pass" value="Upload">Submit</button>
       </form>
-    <a id="fail" class="hangeulTest hide" href="/hangeul/test">Retake test</a>
+    <a id="fail" class="hangeulTest hide" href="/hangeul/test/<%= hangeul[0].section  %>">Retake test</a>
   </div>
   <div class="container">
       <ul class="row list-unstyled">
-        <% const hangeulKeys = Object.keys(hangeul[0].hangeul) %>
+        <% const hangeulKeys = Object.keys((hangeul[0].test)) %>
         <% for(let i=0; i<10; i++) {%>
           <% const selected = Math.ceil(Math.random()*hangeulKeys.length) %>
           <% let fourRandom = [] %>
@@ -36,15 +36,15 @@
             <% let fifth = Math.floor(Math.random()*5) %>
             <% fourRandom.splice(fifth, 0, selected) %>
           <li class="col-6 justify-content-between mt-5" value=<%= selected %> id=compare<%= i %>>   
-            <span><%= hangeul[0].hangeul[selected][0] %></span>
+            <span><%= hangeul[0].test[selected][0] %></span>
           </li>
             <label for="">Choose your answer:</label>
               <select id=answer<%= i %>>
             <% for(let j=0; j<fourRandom.length; j++){ %>
               <% if(j === 0){ %>
-                <option value=<%= hangeul[0].hangeul[fourRandom[j]][1] %> selected="selected"> <%= hangeul[0].hangeul[fourRandom[j]][1] %> </a>
+                <option value=<%= hangeul[0].test[fourRandom[j]][1] %> selected="selected"> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
               <% } else { %>
-              <option value=<%= hangeul[0].hangeul[fourRandom[j]][1] %>> <%= hangeul[0].hangeul[fourRandom[j]][1] %> </a>
+              <option value=<%= hangeul[0].test[fourRandom[j]][1] %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
               <% } %>
             <% } %>
           </select> 
@@ -55,7 +55,8 @@
   </div>
   <script> 
     function grab(){
-      const hangeul = <%- JSON.stringify(hangeul[0].hangeul) %>;
+      const hangeul = <%- JSON.stringify(hangeul[0].test) %>;
+      console.log(hangeul)
       const test = <%- JSON.stringify(hangeul[0].id) %>;
       const user = <%- JSON.stringify(user.id) %>;
       const selected = [];
