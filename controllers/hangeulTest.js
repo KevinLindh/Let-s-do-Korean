@@ -33,13 +33,13 @@ module.exports = {
   },
   createHangeulResult: async (req, res) => {
     try {
-      console.log(req.body);
+      console.log(req.body.test);
        await Result.create({
          test: req.body.test,
          score: req.body.score,
          user: req.user.id,
         });
-      if(req.user.stage < 1){
+      if(req.body.test >= req.user.stage){
       await User.findOneAndUpdate(
         { _id: req.user.id },
         {
