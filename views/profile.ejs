@@ -7,11 +7,19 @@
               <p><strong>Email</strong>: <%= user.email %></p>
           </div>
           <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/feed">Go to sections</a>
+            <a class="btn btn-primary" href="/feed">Go to study sections</a>
           </div>  
           <div class="mt-5">
             <h2>Completed stages</h2>
-
+            <ul>
+            <% for (let i = results.length-1; i >= 0 ; i--){ %>
+              <% const theNum = Number(results[i].test) %>
+              <li style="list-style-type: none;">
+                <span>Section: <%= review[0].sections[theNum] %></span>
+                <span>Score: <%= results[i].score %>%</span>
+              </li>
+            <% } %>
+          </ul>
           </div>
       </div>
       <div class="col-6">

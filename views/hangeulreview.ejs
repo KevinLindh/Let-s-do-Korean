@@ -11,14 +11,14 @@
       </li>
     </div>
     <% } %>
-    <form action="/hangeul/result/<%= hangeul[0].section  %>" enctype="multipart/form-data" method="POST">
+    <form action="/hangeul/result" enctype="multipart/form-data" method="POST">
               <div class="hide">
                   <label for="test">Test</label>
-                  <input type="text" class="form-control" id="test" name="test" value="hangeul">
+                  <textarea class="form-control" id="test" name="test"></textarea>
               </div>
               <div class="hide">
                   <label for="score">Score</label>
-                  <input type="text" class="form-control correct" id="score" name="score" value="">
+                  <textarea class="form-control correct" id="score" name="score"></textarea>
               </div>
               <button type="submit" class="btn btn-primary hide" id="pass" value="Upload">Submit</button>
       </form>
@@ -56,17 +56,18 @@
   <script> 
     function grab(){
       const hangeul = <%- JSON.stringify(hangeul[0].test) %>;
-      console.log(hangeul)
       const test = <%- JSON.stringify(hangeul[0].id) %>;
+      const section = <%- JSON.stringify(hangeul[0].section) %>;
       const user = <%- JSON.stringify(user.id) %>;
       const selected = [];
+      console.log(section)
       correct = 0;
       for(let i = 0; i < 10; i++){
         const compare = document.getElementById(`compare${i}`).value;
         const answer = document.getElementById(`answer${i}`).value;
         document.querySelector(`#question${i}`).innerHTML = hangeul[compare][0];
         document.querySelector(`#check${i}`).innerHTML = `Selected: ${answer}`;
-        document.querySelector(`#correct${i}`).innerHTML = `correct:${hangeul[compare][1]}`;
+        document.querySelector(`#correct${i}`).innerHTML = `correct: ${hangeul[compare][1]}`;
         if(hangeul[compare.toString()][1] === answer){
           selected.push(true);
           correct++;
@@ -78,7 +79,9 @@
       document.querySelector(".container").classList.add("hide");
       document.querySelector(".overlay").style.display = "block";
       document.querySelector("#correct").innerHTML = `Correct: ${passFail}%`
-      document.querySelector("#correct").value = passFail;
+      document.querySelector("#correct").value = "check";
+      document.getElementById("test").innerHTML = section;
+      document.getElementById("score").innerHTML = passFail;
       document.querySelector(".correct").value = passFail;
       if(passFail >= 60){
         document.querySelector("#pass").classList.remove("hide");

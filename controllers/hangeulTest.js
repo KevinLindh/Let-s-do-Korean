@@ -1,6 +1,7 @@
 const hangeulTest = require("../models/HangeulTest");
 const User = require("../models/User");
-const Reviews = require("../models/Reviews")
+const Reviews = require("../models/Reviews");
+const Result = require("../models/Result");
 
 module.exports = {
   // getPost: async (req, res) => {
@@ -24,7 +25,7 @@ module.exports = {
     try {
       const user = await User.find();
       const hangeul = await hangeulTest.find({ "section": req.params.section });
-      console.log(hangeul)
+      console.log(hangeul[0].section)
       res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
     } catch (err) {
       console.log(err);
@@ -32,6 +33,12 @@ module.exports = {
   },
   createHangeulResult: async (req, res) => {
     try {
+      console.log(req.body);
+       await Result.create({
+         test: req.body.test,
+         score: req.body.score,
+         user: req.user.id,
+        });
       if(req.user.stage < 1){
       await User.findOneAndUpdate(
         { _id: req.user.id },
@@ -45,12 +52,6 @@ module.exports = {
           $inc: { points: 50 },
         }
       );
-      console.log("stage +1");
-      // await Results.create({
-      //   test: req.body.test,
-      //   score: req.body.score,
-      //   user: req.user.id,
-      //  });
       console.log("Result has been added!");
       res.redirect("/profile");
     } catch (err) {

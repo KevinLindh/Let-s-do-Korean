@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ResultSchema = new mongoose.Schema({
-  result: {
+  score: {
     type: Number,
   },
   user: {
@@ -14,4 +14,4 @@ const ResultSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Result", ResultSchema);
+module.exports = mongoose.model("Results", ResultSchema);
