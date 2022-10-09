@@ -57,13 +57,25 @@
         <button onclick="grab()">Submit answers</button>
   </div>
   <script> 
+  //grabbing data from the ejs and using it in js through stringify
+  const hangeul = <%- JSON.stringify(hangeul[0].test) %>;
+  const test = <%- JSON.stringify(hangeul[0].id) %>;
+  const section = <%- JSON.stringify(hangeul[0].section) %>;
+  const user = <%- JSON.stringify(user.id) %>;
+
+  //getting keys to access the data
+  const hangeulKeys = Object.keys(hangeul);
+    console.log(hangeulKeys)
+  //create the ten field 
+    for(let i = 0; i < 10; i++){
+      const selected = Math.ceil(Math.random()*hangeulKeys.length);
+      let fourRandom = [];
+    }
+
+
+
   //function to check if the answer is correct or not
     function grab(){
-      //grabbing data from the ejs and using it in js through stringify
-      const hangeul = <%- JSON.stringify(hangeul[0].test) %>;
-      const test = <%- JSON.stringify(hangeul[0].id) %>;
-      const section = <%- JSON.stringify(hangeul[0].section) %>;
-      const user = <%- JSON.stringify(user.id) %>;
       //initialize array and number of correct answers to
       const selected = [];
       correct = 0;

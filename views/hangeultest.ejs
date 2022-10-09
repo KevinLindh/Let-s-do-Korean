@@ -9,16 +9,43 @@
       <a class="hangeulTest" href="/hangeul/test/<%= hangeul[0].section %>">Go to test</a>
     </div>
       <div class="hangeulDiv">
-        <% let newArr = Object.keys((hangeul[0].test)) %>
-        <% for(let i = 1; i <= newArr.length; i++){ %>
+        <a onclick="left()" class="left"><</a>
           <div class="hangeul">
-            <h2><%- hangeul[0].test[i][0] -%></h2>
-            <h2><%- hangeul[0].test[i][1] -%></h2>
-            <p><%- hangeul[0].test[i][2] -%></p>
+            <span id="current"></span>
+            <h2 id="korean"><%- hangeul[0].test[1][0] -%></h2>
+            <h2 id="english"><%- hangeul[0].test[1][1] -%></h2>
+            <p id="sound"><%- hangeul[0].test[1][2] -%></p>
           </div>
-        <% } %>
+          <a onclick="right()" class="right">></a>
       </div>
     </div>
 </div>
+<script>
+  const korean = <%- JSON.stringify(hangeul[0].test) %>;
+   let loopThrough = Object.keys(korean);
+   let count = 1;
+   console.log(loopThrough)
+   function right(){
+    if(count === loopThrough.length){
+    } else {
+      count++;
+    }
+    document.querySelector(`#current`).innerHTML = `${count}/${loopThrough.length}`;
+    document.querySelector(`#korean`).innerHTML = korean[count][0];
+    document.querySelector(`#english`).innerHTML = korean[count][1];
+    document.querySelector(`#sound`).innerHTML = korean[count][2];
+   }
+   function left(){
+    if(count === 1){
+    } else {
+      count--;
+    }
+    document.querySelector(`#current`).innerHTML = `${count}/${loopThrough.length}`;
+    document.querySelector(`#korean`).innerHTML = korean[count][0];
+    document.querySelector(`#english`).innerHTML = korean[count][1];
+    document.querySelector(`#sound`).innerHTML = korean[count][2];
+   }
+   document.querySelector(`#current`).innerHTML = `${count}/${loopThrough.length}`;
+</script>
 </main>
 <%- include('partials/footer') -%>

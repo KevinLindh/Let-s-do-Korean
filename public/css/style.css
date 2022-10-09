@@ -45,22 +45,40 @@ main{
 }
 
 .hangeulDiv{
+    background: lightgoldenrodyellow;
     padding: 5%;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 40px 40px; 
-}
-
-.hangeul{
-    width: 150px;
-    color: black;
-    text-align: center;
-    background: lightgoldenrodyellow;
+    align-items: center;
     border: 2px solid black;
     border-radius: 15px;
 }
+
+.hangeul{
+    width: 80%;
+    color: black;
+    text-align: center;
+    background: lightgoldenrodyellow;
+}
+
+.left, .right{
+    font-size: 30px;
+    position: relative;
+    top: 50%;
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    text-decoration: none;
+    border-radius: 15px;
+  }
 
 .hangeulRev{
     display: flex;
