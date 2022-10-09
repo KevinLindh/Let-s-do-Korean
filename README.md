@@ -1,4 +1,4 @@
-# Let-s-do-Korean
+# Let's do Korean
 
 A web app to be used to connect with others and improve your Korean language ability
 
