@@ -26,34 +26,45 @@
   </div>
   <div class="container">
       <ul class="row list-unstyled">
+        <div class="hangeulDiv">
+          <a onclick="left()" class="left"><</a>
+          <div class="hangeul">
         <% const hangeulKeys = Object.keys((hangeul[0].test)) %>
         <% for(let i=0; i<10; i++) {%>
-          <% const selected = Math.ceil(Math.random()*hangeulKeys.length) %>
-          <% let fourRandom = [] %>
-          <% while(fourRandom.length <4) {%>
-            <% const randomVal = Math.ceil(Math.random()*hangeulKeys.length) %>
-            <% if(!fourRandom.includes(randomVal) && randomVal !== selected){fourRandom.push(randomVal)}}%>
-            <% let fifth = Math.floor(Math.random()*5) %>
-            <% fourRandom.splice(fifth, 0, selected) %>
-          <li class="col-6 justify-content-between mt-5" value=<%= selected %> id=compare<%= i %>>   
-            <span><%= hangeul[0].test[selected][0] %></span>
-          </li>
-            <label for="">Choose your answer:</label>
-              <select id=answer<%= i %>>
-            <% for(let j=0; j<fourRandom.length; j++){ %>
-              <% let theVal = hangeul[0].test[fourRandom[j]][1]; %>
-              <% let splitted = theVal.split(" ") %>
-              <% let insertVal = splitted.join("_") %>
-              <% if(j === 0){ %>
-                <option value=<%= insertVal %> selected="selected"> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
-              <% } else { %>
-              <option value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
+          <% if(i === 0){ %>
+            <div id=question<%= i %> class="hangeul">
+          <% } else { %>
+          <div id=question<%= i %> class="hide hangeul">
+          <% } %>
+            <li id=value<%= i %> class="hide"></li>
+            <% const selected = Math.ceil(Math.random()*hangeulKeys.length) %>
+            <% let fourRandom = [] %>
+            <% while(fourRandom.length <4) {%>
+              <% const randomVal = Math.ceil(Math.random()*hangeulKeys.length) %>
+              <% if(!fourRandom.includes(randomVal) && randomVal !== selected){fourRandom.push(randomVal)}}%>
+              <% let fifth = Math.floor(Math.random()*5) %>
+              <% fourRandom.splice(fifth, 0, selected) %>
+            <li class="col-6 justify-content-between mt-5" value=<%= selected %> id=compare<%= i %>>   
+              <span><%= hangeul[0].test[selected][0] %></span>
+            </li>
+              <span>Choose your answer:</span>
+              <% for(let j=0; j<fourRandom.length; j++){ %>
+                <% let theVal = hangeul[0].test[fourRandom[j]][1]; %>
+                <% let splitted = theVal.split(" ") %>
+                <% let insertVal = splitted.join("_") %>
+                <% if(j === 0){ %>
+                  <button id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </button>
+                <% } else { %>
+                <button id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </button>
+                <% } %>
               <% } %>
-            <% } %>
-          </select> 
-          
-        <% } %>
+              </div>
+          <% } %>
+        </div>
+        <a onclick="right()" class="right">></a>
+        </div>
         </ul>
+        
         <button onclick="grab()">Submit answers</button>
   </div>
   <script> 
@@ -63,16 +74,22 @@
   const section = <%- JSON.stringify(hangeul[0].section) %>;
   const user = <%- JSON.stringify(user.id) %>;
 
-  //getting keys to access the data
-  const hangeulKeys = Object.keys(hangeul);
-    console.log(hangeulKeys)
-  //create the ten field 
-    for(let i = 0; i < 10; i++){
-      const selected = Math.ceil(Math.random()*hangeulKeys.length);
-      let fourRandom = [];
-    }
+  //scroller
+  let count = 0;
+  for(let i = 0; i < 10; i++){
+    document.getElementById(`${}`)
+  }
 
-
+//loop through and addeventlistener to selection
+for(let i = 0; i < 10; i++){
+  for(let j= 0; j < 5; j++){
+    let buttons = document.getElementById(`select${i}${j}`)
+    buttons.addEventListener("click", function changeVal(){
+      let value = buttons.innerHTML
+      document.getElementById(`value${i}`).innerHTML = value
+    });
+  }
+}
 
   //function to check if the answer is correct or not
     function grab(){
@@ -82,18 +99,20 @@
       //loop through the answers and check if second value of the array in question is equal ++ else nothing
       for(let i = 0; i < 10; i++){
         const compare = document.getElementById(`compare${i}`).value;
-        const optionVal = document.getElementById(`answer${i}`).value;
+        const optionVal = document.getElementById(`value${i}`).innerHTML.trim();
         const answer = optionVal.split("_").join(" ");
         document.querySelector(`#question${i}`).innerHTML = hangeul[compare][0];
         document.querySelector(`#check${i}`).innerHTML = `Selected: ${answer}`;
         document.querySelector(`#correct${i}`).innerHTML = `correct: ${hangeul[compare][1]}`;
-        console.log(answer)
         if(hangeul[compare.toString()][1] === answer){
           selected.push(true);
           correct++;
         } else {
           selected.push(false)
         } 
+        console.log(answer)
+        console.log(hangeul[compare.toString()][1])
+        console.log(correct)
       }
       //input all the values and if pass >= 60% show submit else retake
       const passFail = (correct/selected.length)*100;
