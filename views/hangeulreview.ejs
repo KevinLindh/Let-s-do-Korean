@@ -30,11 +30,12 @@
           <a onclick="left()" class="left"><</a>
           <div class="hangeul">
         <% const hangeulKeys = Object.keys((hangeul[0].test)) %>
+        <% const questions = [] %>
         <% for(let i=0; i<10; i++) {%>
           <% if(i === 0){ %>
-            <div id=question<%= i %> class="hangeul">
+            <div id=questionField<%= i %> class="hangeul">
           <% } else { %>
-          <div id=question<%= i %> class="hide hangeul">
+          <div id=questionField<%= i %> class="hide hangeul">
           <% } %>
             <li id=value<%= i %> class="hide"></li>
             <% const selected = Math.ceil(Math.random()*hangeulKeys.length) %>
@@ -44,8 +45,10 @@
               <% if(!fourRandom.includes(randomVal) && randomVal !== selected){fourRandom.push(randomVal)}}%>
               <% let fifth = Math.floor(Math.random()*5) %>
               <% fourRandom.splice(fifth, 0, selected) %>
+              <span><%= i+1 %>/10</span>
             <li class="col-6 justify-content-between mt-5" value=<%= selected %> id=compare<%= i %>>   
-              <span><%= hangeul[0].test[selected][0] %></span>
+              <span id=search<%= i %>><%= hangeul[0].test[selected][0] %></span>
+              <% questions[i] = hangeul[0].test[selected][0] %>
             </li>
               <span>Choose your answer:</span>
               <% for(let j=0; j<fourRandom.length; j++){ %>
@@ -59,12 +62,20 @@
                 <% } %>
               <% } %>
               </div>
-          <% } %>
+        <% } %>
         </div>
         <a onclick="right()" class="right">></a>
         </div>
         </ul>
-        
+        <!-- add a quick way to see your answers on the test from 1 to 10 -->
+        <ul>
+            <% for(let i = 0; i < 10; i++){ %>
+            <li>
+              <span>Question <%= i+1 %>: <%= questions[i] %></span>
+              <span>Answer <%= i+1 %>:</span> <span id=checkerTest<%= i %>></span>
+             </li>
+            <% } %>
+        </ul>
         <button onclick="grab()">Submit answers</button>
   </div>
   <script> 
@@ -76,8 +87,25 @@
 
   //scroller
   let count = 0;
-  for(let i = 0; i < 10; i++){
-    document.getElementById(`${}`)
+  function right(){
+    let prev = count;
+    if(count !== 9){
+      count++;
+      checker(prev);
+    }
+  }
+  function left(){
+    let prev = count;
+    if(count !== 0){
+      count--;
+      checker(prev);
+    }
+  }
+
+  function checker(prev){
+    document.getElementById(`questionField${prev}`).classList.toggle("hide")
+    document.getElementById(`questionField${count}`).classList.toggle("hide")
+    console.log(document.getElementById(`questionField${prev}`).classList)
   }
 
 //loop through and addeventlistener to selection
@@ -85,8 +113,9 @@ for(let i = 0; i < 10; i++){
   for(let j= 0; j < 5; j++){
     let buttons = document.getElementById(`select${i}${j}`)
     buttons.addEventListener("click", function changeVal(){
-      let value = buttons.innerHTML
-      document.getElementById(`value${i}`).innerHTML = value
+      let value = buttons.innerHTML;
+      document.getElementById(`value${i}`).innerHTML = value;
+      document.getElementById(`checkerTest${i}`).innerHTML = value;
     });
   }
 }

@@ -28,7 +28,24 @@
   <body>
     <header class="containerNav">
       <nav>
-      <div class="text-center">
+        <div class="headerItemContainer">
+         <p class="navUsername"><%= user.userName %></p>
+         <div class="navBtn">
+          <div class="caret cursorPointer">
+           &#9660
+          </div>
+         <img class="profileAvatar cursorPointer" src="imgs/koreanflag.jpg">
+        </div>
+         <div class="navModalDropdown hide">
+          <ul class="dropdownUl">
+            <li>Stages complete: <%= user.stage %></li>
+            <li>Points: <%= user.points %></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+         </div>
+      </div>
+      <!-- <div class="text-center">
         <ul class="navigation">
           <li>Current user: <%= user.userName %></li>
           <li>Stages complete: <%= user.stage %></li>
@@ -36,8 +53,24 @@
           <li><a href="/profile">Return to Profile</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
-      </div>
+      </div> -->
     </nav>
     </header>
   </body>
+  <script>
+    
+    const navBtn = document.querySelector('.navBtn')
+    const dropDown = document.querySelector('.navModalDropdown')
+    const caret = document.querySelector(".caret")
+    const image = document.querySelector(".profileAvatar")
+
+    navBtn.addEventListener('click', () => {
+      dropDown.classList.contains('hide') ? dropDown.classList.remove('hide') : dropDown.classList.add('hide');
+      caret.classList.contains("flipArrow") ? caret.classList.remove("flipArrow") : caret.classList.add("flipArrow");
+    })
+
+      let addImg = "../"
+      let increase = image.src.split("/").length-4;
+      image.src = addImg.repeat(increase) + "imgs/koreanflag.jpg";
+  </script>
 </html>

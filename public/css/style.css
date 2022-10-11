@@ -3,6 +3,13 @@
     padding: 0;
   }
 
+  .profileAvatar{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
 main{
     background: linear-gradient(
         rgba(0, 0, 0, 0.75), 
@@ -14,8 +21,10 @@ main{
 }
 
 .containerNav{
-    height: 50px;
-    background: grey;
+    padding: 20px 20px;
+    background: rgb(0,33,255);
+background: linear-gradient(90deg, rgba(0,33,255,1) 0%, rgba(253,29,29,1) 52%, rgba(255,255,255,1) 100%);
+    border-bottom: 5px solid black;
 }
 
 .navigation{
@@ -81,6 +90,8 @@ main{
     border-radius: 15px;
   }
 
+
+  
 .hangeulRev{
     display: flex;
     justify-content: center;
@@ -123,3 +134,57 @@ main{
     margin:auto;
     margin-left: 50%;
   }
+
+  .cursorPointer {
+    cursor: pointer;
+  }
+
+
+  .headerItemContainer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+  }
+
+ /* .headerItemContainer:hover{
+    cursor: pointer;
+ } */
+
+ .navUsername {
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+ }
+
+ .caret {
+    font-size: 12px;
+ }
+
+
+ .navModalDropdown {
+    position: absolute;
+    background-color: black;
+    color: white;
+    top: 40px;
+    padding: 24px 24px;
+    border-radius: 5px;
+ }
+
+ .dropdownUl{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ }
+
+ .flipArrow{
+    /* flip vertically */
+    transform: rotate(180deg);
+ }
+
+ .navBtn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+ }
