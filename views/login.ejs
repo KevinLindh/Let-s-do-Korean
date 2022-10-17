@@ -29,8 +29,8 @@
     <header class="containerIndex">
     </header>
 <main class="containerIndex">
-  <div class="row justify-content-center">
-    <section class="col-6 mt-5">
+  <div class="indexCard">
+    <h1 class="indexCardTitle">Let's do Korean!</h1>
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
@@ -38,7 +38,7 @@
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
       <form action="/login" method="POST">
-        <div class="mb-3">
+        <div class="">
           <label for="exampleInputEmail1" class="form-label"
             >Email address</label
           >
@@ -59,11 +59,10 @@
             name="password"
           />
         </div>
-        <button type="submit" class="col-12 btn btn-primary">Login</button>
-        <a href="/signup" id="signup" class=" col-12 btn btn-primary">Signup</a>
+        <button type="submit" class="indexBtn">Login</button>
       </form>
-      
-    </section>
+      <a href="/signup" class="indexBtn"> Signup</a>
+    <span class="indexCardCopyright">LetsDoKorean &#169; 2022</span>
   </div>
 </main>
 </body>

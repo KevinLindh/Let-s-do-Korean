@@ -46,33 +46,34 @@
               <% let fifth = Math.floor(Math.random()*5) %>
               <% fourRandom.splice(fifth, 0, selected) %>
               <span><%= i+1 %>/10</span>
-            <li class="col-6 justify-content-between mt-5" value=<%= selected %> id=compare<%= i %>>   
-              <span id=search<%= i %>><%= hangeul[0].test[selected][0] %></span>
+            <li class="" value=<%= selected %> id=compare<%= i %>>   
+              <h2 id=search<%= i %>><%= hangeul[0].test[selected][0] %></h2>
               <% questions[i] = hangeul[0].test[selected][0] %>
             </li>
-              <span>Choose your answer:</span>
+              <span class="choose">Choose your answer:</span>
+              <div class="spaceBtn">
               <% for(let j=0; j<fourRandom.length; j++){ %>
                 <% let theVal = hangeul[0].test[fourRandom[j]][1]; %>
                 <% let splitted = theVal.split(" ") %>
                 <% let insertVal = splitted.join("_") %>
                 <% if(j === 0){ %>
-                  <button id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </button>
+                  <a class="testBtn" id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
                 <% } else { %>
-                <button id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </button>
+                <a class="testBtn" id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
                 <% } %>
               <% } %>
-              </div>
+            </div>
+            </div>
         <% } %>
         </div>
         <a onclick="right()" class="right">></a>
         </div>
         </ul>
         <!-- add a quick way to see your answers on the test from 1 to 10 -->
-        <ul>
+        <ul class="answers">
             <% for(let i = 0; i < 10; i++){ %>
-            <li>
-              <span>Question <%= i+1 %>: <%= questions[i] %></span>
-              <span>Answer <%= i+1 %>:</span> <span id=checkerTest<%= i %>></span>
+            <li class="answersList">
+              <span><%= i+1 %>: <%= questions[i] %> - <span id=checkerTest<%= i %>></span></span>
              </li>
             <% } %>
         </ul>
@@ -114,6 +115,15 @@ for(let i = 0; i < 10; i++){
     let buttons = document.getElementById(`select${i}${j}`)
     buttons.addEventListener("click", function changeVal(){
       let value = buttons.innerHTML;
+      let loopThrougSelected = Number(event.target.id.split("")[6]);
+      for(let k = 0; k < 5; k++){
+        let selectedBtn = document.getElementById(`select${loopThrougSelected}${k}`);
+        if(selectedBtn.classList.contains("btnSelected")){
+          selectedBtn.classList.remove("btnSelected");
+        }
+      }
+      console.log(loopThrougSelected)
+      buttons.classList.add("btnSelected");
       document.getElementById(`value${i}`).innerHTML = value;
       document.getElementById(`checkerTest${i}`).innerHTML = value;
     });

@@ -3,13 +3,15 @@
 <div class="container">
       <div class="col-6">
           <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
+            <p>Welcome to:<strong> Let's Do Korean</strong></p>
+            <p>To see your progress please click on the korean flag icon on the top right of the screen</p>
           </div>
           <div class="row justify-content-center mt-5">
             <a class="btn btn-primary" href="/feed">Go to study sections</a>
           </div>  
           <div class="mt-5">
+            <p>After completing a section it will be listed below (a passing grade is 60%)</p>
+            <span>열심히 공부하자! 화이팅!</span>
             <h2>Completed stages</h2>
             <ul>
             <% for (let i = results.length-1; i >= 0 ; i--){ %>

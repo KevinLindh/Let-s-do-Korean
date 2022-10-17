@@ -12,10 +12,10 @@ body{
 }
 
 .containerIndex{
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding-top: 200px;
 }
 
@@ -40,11 +40,11 @@ label{
 }
 
 .indexCardTitle {
-  margin-bottom: px;
+  margin-bottom: 50px;
 }
 
 .indexCard {
-  /* width: 200px; */
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,7 +52,8 @@ label{
   background-color: white;
   text-transform: uppercase;
   border-radius: 5px;
-  height: 600px;
+  min-height: 600px;
+  height: 100%;
 
   background: rgba( 255, 255, 255, 0.2 );
   box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
@@ -87,4 +88,5 @@ label{
  display: flex;
  justify-content: center;
  font-weight: bold;
+ padding-top: 15px;
 }
