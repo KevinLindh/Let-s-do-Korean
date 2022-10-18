@@ -1,20 +1,10 @@
-const hangeulTest = require("../models/HangeulTest.js");
+const hangeulTest = require("../models/HangeulTest");
 const User = require("../models/User");
-const Reviews = require("../models/Reviews");
 const Result = require("../models/Result");
 
 module.exports = {
-  // getPost: async (req, res) => {
-  //   try {
-  //     const post = await Post.findById(req.params.id);
-  //     res.render("post.ejs", { post: post, user: req.user });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
   getHangeulTest: async (req, res) => {
     try {
-      const user = await User.find();
       const hangeul = await hangeulTest.find({ "section": req.params.section });
       res.render("hangeulTest.ejs", { hangeul: hangeul, user: req.user});
     } catch (err) {
@@ -23,7 +13,6 @@ module.exports = {
   },
   getHangeulReview: async (req, res) => {
     try {
-      const user = await User.find();
       const hangeul = await hangeulTest.find({ "section": req.params.section });
       console.log(hangeul[0].section)
       res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
