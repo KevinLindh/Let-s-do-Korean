@@ -1,11 +1,11 @@
-const hangeulTest = require("../models/HangeulTest.js");
+const HangeulTest = require("../models/HangeulTest");
 const User = require("../models/User");
 const Result = require("../models/Result");
 
 module.exports = {
   getHangeulTest: async (req, res) => {
     try {
-      const hangeul = await hangeulTest.find({ "section": req.params.section });
+      const hangeul = await HangeulTest.find({ "section": req.params.section });
       res.render("hangeulTest.ejs", { hangeul: hangeul, user: req.user});
     } catch (err) {
       console.log(err);
@@ -13,7 +13,7 @@ module.exports = {
   },
   getHangeulReview: async (req, res) => {
     try {
-      const hangeul = await hangeulTest.find({ "section": req.params.section });
+      const hangeul = await HangeulTest.find({ "section": req.params.section });
       console.log(hangeul[0].section)
       res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
     } catch (err) {
