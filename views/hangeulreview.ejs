@@ -1,28 +1,16 @@
 <%- include('partials/header') -%>
 <main>
-  <div class="overlay">
+  <div class="overlay hide">
     <h2 id="correct" value=""></h2>
     <% for (let i = 0; i < 10; i++){ %>
     <div>
       <li class="col-6 justify-content-between mt-5">
         <span id=question<%= i %>></span>   
         <span id=check<%= i %>></span>
-        <span id=correct<%= i %>></span>
+        <!-- <span id=correct<%= i %>></span> -->
       </li>
     </div>
     <% } %>
-    <form action="/hangeul/result" enctype="multipart/form-data" method="POST">
-              <div class="hide">
-                  <label for="test">Test</label>
-                  <textarea class="form-control" id="test" name="test"></textarea>
-              </div>
-              <div class="hide">
-                  <label for="score">Score</label>
-                  <textarea class="form-control correct" id="score" name="score"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary hide" id="pass" value="Upload">Submit</button>
-      </form>
-    <a id="fail" class="hangeulTest hide" href="/hangeul/test/<%= hangeul[0].section %>">Retake test</a>
   </div>
   <div class="container">
       <ul class="row list-unstyled">
@@ -73,12 +61,27 @@
         <ul class="answers">
             <% for(let i = 0; i < 10; i++){ %>
             <li class="answersList">
-              <span><%= i+1 %>: <%= questions[i] %> - <span id=checkerTest<%= i %>></span></span>
+              <span><%= i+1 %>: <%= questions[i] %> - <span id=checkerTest<%= i %>></span> <span id=correct<%= i %>></span></span>
              </li>
             <% } %>
+            <span id="scoreShow">Score: </span>
         </ul>
-        <button onclick="grab()">Submit answers</button>
+        <div class="centerButtons">
+        <a id="testResult" onclick="grab()" class="hangeulTest">Submit answers</a>
+        <form action="/hangeul/result" enctype="multipart/form-data" method="POST">
+          <div class="hide">
+              <label for="test">Test</label>
+              <textarea class="form-control" id="test" name="test"></textarea>
+          </div>
+          <div class="hide">
+              <label for="score">Score</label>
+              <textarea class="form-control correct" id="score" name="score"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary hide" id="pass" value="Upload">Submit</button>
+  </form>
+<a id="fail" class="hangeulTest hide" href="/hangeul/test/<%= hangeul[0].section %>">Retake test</a>
   </div>
+</div>
   <script> 
   //grabbing data from the ejs and using it in js through stringify
   const hangeul = <%- JSON.stringify(hangeul[0].test) %>;
@@ -142,11 +145,12 @@ for(let i = 0; i < 10; i++){
         const answer = optionVal.split("_").join(" ");
         document.querySelector(`#question${i}`).innerHTML = hangeul[compare][0];
         document.querySelector(`#check${i}`).innerHTML = `Selected: ${answer}`;
-        document.querySelector(`#correct${i}`).innerHTML = `correct: ${hangeul[compare][1]}`;
         if(hangeul[compare.toString()][1] === answer){
+          document.querySelector(`#correct${i}`).innerHTML = `&#10004;`;
           selected.push(true);
           correct++;
         } else {
+          document.querySelector(`#correct${i}`).innerHTML = `&#10006; Correct answer: ${hangeul[compare][1]}`;
           selected.push(false)
         } 
         console.log(answer)
@@ -155,18 +159,20 @@ for(let i = 0; i < 10; i++){
       }
       //input all the values and if pass >= 60% show submit else retake
       const passFail = (correct/selected.length)*100;
-      document.querySelector(".container").classList.add("hide");
-      document.querySelector(".overlay").style.display = "block";
+      // // document.querySelector(".container").classList.add("hide");
+      // document.querySelector(".overlay").style.display = "block";
       document.querySelector("#correct").innerHTML = `Correct: ${passFail}%`
       document.querySelector("#correct").value = "check";
       document.getElementById("test").innerHTML = section;
       document.getElementById("score").innerHTML = passFail;
+      document.getElementById("scoreShow").innerHTML = `Score: ${passFail}%`;
       document.querySelector(".correct").value = passFail;
       if(passFail >= 60){
         document.querySelector("#pass").classList.remove("hide");
       } else {
         document.querySelector("#fail").classList.remove("hide");
       }
+      document.querySelector("#testResult").classList.add("hide");
     }
     </script>  
     </main>
