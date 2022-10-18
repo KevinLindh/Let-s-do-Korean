@@ -9,4 +9,4 @@ const HangeulTestSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("hangeul1", HangeulTestSchema);
+module.exports = mongoose.model("Hangeul1", HangeulTestSchema);

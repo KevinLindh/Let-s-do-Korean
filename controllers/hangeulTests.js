@@ -1,4 +1,4 @@
-const hangeulTest = require("../models/HangeulTest");
+const hangeulTest = require("../models/HangeulTest.js");
 const User = require("../models/User");
 const Result = require("../models/Result");
 
