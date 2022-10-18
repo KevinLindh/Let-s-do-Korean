@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const hangeulController = require("../controllers/hangeulTests");
+const hangeulController = require("../controllers/hangeul1");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 const upload = require("../middleware/multer");
 
