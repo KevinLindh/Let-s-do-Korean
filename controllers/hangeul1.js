@@ -15,7 +15,7 @@ module.exports = {
     try {
       const hangeul = await HangeulTest.find({ "section": req.params.section });
       console.log(hangeul[0].section)
-      res.render("test", {hangeul: hangeul, user: req.user });
+      res.render("testing", {hangeul: hangeul, user: req.user });
     } catch (err) {
       console.log(err);
     }
