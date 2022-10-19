@@ -15,7 +15,7 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const review = await Reviews.find();
-      res.render("feed", {review: review, user: req.user});
+      res.render("sections", {review: review, user: req.user});
     } catch (err) {
       console.log(err);
     }

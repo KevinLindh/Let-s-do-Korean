@@ -1,6 +1,7 @@
 <%- include('partials/header') -%>
 <main>
   <div class="container">
+    <h2>Sections Completed: <%- user.stage %> / <%- review[0].sections.length %></h2>
       <ul class="row list-unstyled">
         <% for(let i = 0; i < review[0].sections.length; i++){ %>
           <% if(i <= user.stage){ %>
