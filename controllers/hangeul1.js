@@ -6,7 +6,7 @@ module.exports = {
   getHangeulTest: async (req, res) => {
     try {
       const hangeul = await HangeulTest.find({ "section": req.params.section });
-      res.render("hangeulTest.ejs", { hangeul: hangeul, user: req.user});
+      res.render("hangeulTest", { hangeul: hangeul, user: req.user});
     } catch (err) {
       console.log(err);
     }
@@ -15,7 +15,7 @@ module.exports = {
     try {
       const hangeul = await HangeulTest.find({ "section": req.params.section });
       console.log(hangeul[0].section)
-      res.render("hangeulReview.ejs", {hangeul: hangeul, user: req.user });
+      res.render("hangeulReview", {hangeul: hangeul, user: req.user });
     } catch (err) {
       console.log(err);
     }

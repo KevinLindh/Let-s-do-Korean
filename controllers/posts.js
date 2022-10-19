@@ -7,7 +7,7 @@ module.exports = {
       const review = await Reviews.find();
       console.log(req.user.id)
       const results = await Results.find({user: req.user.id})
-      res.render("profile.ejs", { results, review, user: req.user });
+      res.render("profile", { results, review, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -15,7 +15,7 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const review = await Reviews.find();
-      res.render("feed.ejs", {review: review, user: req.user});
+      res.render("feed", {review: review, user: req.user});
     } catch (err) {
       console.log(err);
     }
