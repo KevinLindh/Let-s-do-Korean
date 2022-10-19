@@ -22,6 +22,7 @@ require("./config/passport")(passport);
 connectDB();
 
 //Using EJS for views
+app.set('/views', __dirname + 'views');
 app.set("view engine", "ejs");
 
 //Static Folder
