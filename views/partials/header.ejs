@@ -32,6 +32,14 @@
     <header class="containerNav">
       <nav>
         <div class="headerItemContainer">
+        <div class="navBtnContainer">
+        <ul class="quickNavBtns">
+          <li>Study section</li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+        </div>
+        <div class="headerUser">
          <p class="navUsername"><%= user.userName %></p>
          <div class="navBtn">
           <div class="caret cursorPointer">
@@ -43,20 +51,10 @@
           <ul class="dropdownUl">
             <li>Stages complete: <%= user.stage %></li>
             <li>Points: <%= user.points %></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/logout">Logout</a></li>
           </ul>
          </div>
+        </div>
       </div>
-      <!-- <div class="text-center">
-        <ul class="navigation">
-          <li>Current user: <%= user.userName %></li>
-          <li>Stages complete: <%= user.stage %></li>
-          <li>Points: <%= user.points %></li>
-          <li><a href="/profile">Return to Profile</a></li>
-          <li><a href="/logout">Logout</a></li>
-        </ul>
-      </div> -->
     </nav>
     </header>
   </body>

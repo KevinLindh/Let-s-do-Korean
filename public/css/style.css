@@ -6,7 +6,7 @@
   /* Set body and font family */
 
   body{
-    background: black;
+    background: grey;
     font-family: 'Source Sans Pro', sans-serif;
     font-family: 'Source Serif 4', serif;
   }
@@ -16,6 +16,7 @@
     height: 30px;
     object-fit: cover;
     border-radius: 50%;
+    border: 1px solid black;
   }
 
 main{
@@ -24,18 +25,101 @@ main{
     min-height: 95vh;
 }
 
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+span, a, label{
+  text-transform: none;
+}
+
+/* Navigation */
+
 .containerNav{
-    padding: 20px 20px;
-    background: rgb(0,33,255);
-background: linear-gradient(90deg, rgba(0,33,255,1) 0%, rgba(253,29,29,1) 52%, rgba(255,255,255,1) 100%);
-    border-bottom: 5px solid black;
+  height: 4vh;
+    background-color: white;
 }
 
 .navigation{
     display: flex;
     justify-content: space-around;
-    list-style: none;
 }
+
+.headerItemContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-right: 2%;
+}
+
+/* Navigation buttons for moving around */
+
+.navBtnContainer{
+  width: 30%;
+}
+
+.quickNavBtns{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  border: 2px solid grey;
+}
+
+.quickNavBtns li{
+  height: 100%;
+  border: 2px solid grey;
+}
+
+.navUsername {
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.caret {
+  font-size: 12px;
+}
+
+
+.navModalDropdown {
+  position: absolute;
+  background-color: white;
+  color: black;
+  top: 40px;
+  padding: 100px 60px;
+  border-radius: 5px;
+}
+
+.dropdownUl{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flipArrow{
+  /* flip vertically */
+  transform: rotate(180deg);
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.headerUser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Study section */
 
 .inactiveLink {
     pointer-events: none;
@@ -70,6 +154,8 @@ background: linear-gradient(90deg, rgba(0,33,255,1) 0%, rgba(253,29,29,1) 52%, r
 .hangeulh2{
     text-align: center;
 }
+
+/* Review section */
 
 .hangeulDiv{
     background: lightgoldenrodyellow;
@@ -114,6 +200,8 @@ background: linear-gradient(90deg, rgba(0,33,255,1) 0%, rgba(253,29,29,1) 52%, r
     justify-content: center;
     align-items: center;
 }
+
+/* Test section */
 
 .hangeulTest{
     color: black;
@@ -162,56 +250,6 @@ background: linear-gradient(90deg, rgba(0,33,255,1) 0%, rgba(253,29,29,1) 52%, r
   .cursorPointer {
     cursor: pointer;
   }
-
-
-  .headerItemContainer {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-  }
-
- /* .headerItemContainer:hover{
-    cursor: pointer;
- } */
-
- .navUsername {
-    margin-bottom: 0;
-    font-size: 12px;
-    font-weight: bold;
- }
-
- .caret {
-    font-size: 12px;
- }
-
-
- .navModalDropdown {
-    position: absolute;
-    background-color: black;
-    color: white;
-    top: 40px;
-    padding: 24px 24px;
-    border-radius: 5px;
- }
-
- .dropdownUl{
-    list-style: none;
-    padding: 0;
-    margin: 0;
- }
-
- .flipArrow{
-    /* flip vertically */
-    transform: rotate(180deg);
- }
-
- .navBtn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
- }
  
 .memorizedUL{
 margin: 2%;
@@ -330,4 +368,28 @@ flex-wrap: wrap;
 .sectionsBtn span {
   z-index: 1;
   position: relative;
+}
+
+/* Footer */
+
+footer{
+  position: absolute; /* I don't care about other things */
+  bottom: 0; /* I want to be on the bottom... */
+  width: 100%;
+}
+
+.indexBottom{
+  color: black;
+  background-color: grey;
+  height: 4vh;
+  padding: 0 20% 0 20%;
+}
+.indexBottom ul{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  list-style: none;
 }
