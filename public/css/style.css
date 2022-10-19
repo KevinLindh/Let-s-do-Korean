@@ -3,6 +3,14 @@
     padding: 0;
   }
 
+  /* Set body and font family */
+
+  body{
+    background: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Serif 4', serif;
+  }
+
   .profileAvatar{
     width: 30px;
     height: 30px;
