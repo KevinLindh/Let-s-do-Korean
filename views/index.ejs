@@ -26,15 +26,51 @@
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
-<main class="indexPage">
+  <main>
+      <section>
+        <div class="scroller">
+          <section class="news-message">
+            <p class="words">&nbsp; 아자 아자 파이팅! &nbsp;</p>
+            <p class="words">&nbsp; 힘내세요! &nbsp;</p>
+            <p class="words">&nbsp; 응원할게요! &nbsp;</p>
+            <p class="words">&nbsp; 할 수 있어요! &nbsp;</p>
+            <p class="words">&nbsp; 포기하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 다 잘 될 거예요! &nbsp;</p>
+            <p class="words">&nbsp; 모든 일이 잘 되길 바랄게요! &nbsp;</p>
+            <p class="words">&nbsp; 걱정하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 자랑스러워요! &nbsp;</p>
+            <p class="words">&nbsp; 꿈을 이루길 바랄게요! &nbsp;</p>
+            </section>
+         <section class="news-message">
+            <p class="words">&nbsp; 아자 아자 파이팅! &nbsp;</p>
+            <p class="words">&nbsp; 힘내세요! &nbsp;</p>
+            <p class="words">&nbsp; 응원할게요! &nbsp;</p>
+            <p class="words">&nbsp; 할 수 있어요! &nbsp;</p>
+            <p class="words">&nbsp; 포기하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 다 잘 될 거예요! &nbsp;</p>
+            <p class="words">&nbsp; 모든 일이 잘 되길 바랄게요! &nbsp;</p>
+            <p class="words">&nbsp; 걱정하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 자랑스러워요! &nbsp;</p>
+            <p class="words">&nbsp; 꿈을 이루길 바랄게요! &nbsp;</p>
+            </section>
+        </div>
+        </section>
+<div class="indexPage">
+  <div class="indexDescription">
+    <h1 class="indexH1">Let's Do Korean!</h1>
+    <p>Welcome to Let's Do Korean! The site that makes korean language learning fun and easy. The service is free so don't hesitate to signup or login if you are an existing user</p>
+  </div>
     <div class="indexCard">
-      <h1 class="indexCardTitle">Let's do Korean!</h1>
-      <div class="indexBtnContainer">
-        <a href="/login" class="indexBtn"> Login</a>
-        <a href="/signup" class="indexBtn"> Signup</a>
+      <div class="row loginTop">
+        <span class="text-center">For Existing Users:</span>
+        <a href="/login" class="indexLogin text-center"> Login</a>
+        <a class="text-center loginToplast">Have you forgotten your password?</a>
       </div>
-      <span class="indexCardCopyright">LetsDoKorean &#169; 2022</span>
+      <div class="row">
+        <span class="text-center">Don't have an account yet? Sign up here!</span>
+        <a href="/signup" class="indexSignup text-center"> Signup</a>
+      </div>
     </div>
+</div>
 </main>
-</body>
-</html>
+<%- include('partials/indexfooter') -%>

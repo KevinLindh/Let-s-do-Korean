@@ -26,10 +26,41 @@
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
-    <main class="containerIndex">
-      <div class="indexCard">
-        <h1 class="indexCardTitle">Let's do Korean!</h1>
-        <div class="indexBtnContainer">
+    <main>
+      <section>
+        <div class="scroller">
+          <section class="news-message">
+            <p class="words">&nbsp; 아자 아자 파이팅! &nbsp;</p>
+            <p class="words">&nbsp; 힘내세요! &nbsp;</p>
+            <p class="words">&nbsp; 응원할게요! &nbsp;</p>
+            <p class="words">&nbsp; 할 수 있어요! &nbsp;</p>
+            <p class="words">&nbsp; 포기하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 다 잘 될 거예요! &nbsp;</p>
+            <p class="words">&nbsp; 모든 일이 잘 되길 바랄게요! &nbsp;</p>
+            <p class="words">&nbsp; 걱정하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 자랑스러워요! &nbsp;</p>
+            <p class="words">&nbsp; 꿈을 이루길 바랄게요! &nbsp;</p>
+            </section>
+         <section class="news-message">
+            <p class="words">&nbsp; 아자 아자 파이팅! &nbsp;</p>
+            <p class="words">&nbsp; 힘내세요! &nbsp;</p>
+            <p class="words">&nbsp; 응원할게요! &nbsp;</p>
+            <p class="words">&nbsp; 할 수 있어요! &nbsp;</p>
+            <p class="words">&nbsp; 포기하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 다 잘 될 거예요! &nbsp;</p>
+            <p class="words">&nbsp; 모든 일이 잘 되길 바랄게요! &nbsp;</p>
+            <p class="words">&nbsp; 걱정하지 마세요! &nbsp;</p>
+            <p class="words">&nbsp; 자랑스러워요! &nbsp;</p>
+            <p class="words">&nbsp; 꿈을 이루길 바랄게요! &nbsp;</p>
+            </section>
+        </div>
+      </section>
+    <div class="indexPage">
+      <div class="indexDescription">
+        <h1 class="indexH1">Let's Do Korean!</h1>
+        <p>Welcome to Let's Do Korean! The site that makes korean language learning fun and easy. The service is free so don't hesitate to signup or login if you are an existing user</p>
+      </div>
+        <div class="indexCard">
             <% if (locals.messages.errors) { %>
                 <% messages.errors.forEach( el => { %>
                     <div class="alert alert-danger"><%= el.msg %></div>
@@ -58,12 +89,10 @@
                     <label for="confirmPassword" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                   </div>
-                <button type="submit" class="indexBtn">Signup</button>
+                <button type="submit" class="indexSignup">Signup</button>
               </form>
+        <span class="text-center">Existing user? &nbsp<a href="/login">Login here</a></span>
         </div>
-        <span class="indexCardCopyright">Existing user? &nbsp<a href="/login">Login here</a></span>
-        <span class="indexCardCopyright">LetsDoKorean &#169; 2022</span>
-      </div>
+    </div>
     </main>
-  </body>
-  </html>
+    <%- include('partials/indexfooter') -%>

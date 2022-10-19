@@ -5,38 +5,52 @@
   }
 
 body{
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.45), 
-        rgba(0, 0, 0, 0.45)
-      ), url(../imgs/koreavillage.jpg) no-repeat center center fixed;
+    background: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Serif 4', serif;
 }
 
-.containerIndex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 200px;
+main{
+  background: rgb(215, 214, 214);
 }
 
-label{
-    color: white;
+html{
+  min-height: 100vh;
 }
 
-#signup{
-    margin-top: 20px;
+span, a, label{
+  text-transform: none;
 }
 
 
-/*  */
-
+/* index */
 
 .indexPage {
-  min-height: 100vh;
-  width: 100%;
+  min-height: 70vh;
+  padding: 0 10% 0 10%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+}
+
+.indexDescription{
+  padding: 5%;
+  min-height: 30vh;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.indexH1{
+  font-weight: 900;
+  font-size: 3.5rem;
+  margin-bottom: 5%;
+}
+
+.indexDescription p{
+  font-weight: 500;
+  font-size: 1.25rem;
 }
 
 .indexCardTitle {
@@ -44,7 +58,7 @@ label{
 }
 
 .indexCard {
-  width: 500px;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,41 +66,125 @@ label{
   background-color: white;
   text-transform: uppercase;
   border-radius: 5px;
-  min-height: 600px;
+  min-height: 400px;
   height: 100%;
-
-  background: rgba( 255, 255, 255, 0.2 );
-  box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
-  backdrop-filter: blur( 4.5px );
-  -webkit-backdrop-filter: blur( 4.5px );
   border-radius: 10px;
 }
 
-.indexBtnContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  /* margin-top: auto; */
-}
-
-.indexBtn {
-  background-color: black;
+.indexLogin{
+  background-color: rgb(2, 61, 238);
   padding: 8px 16px;
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  width: 100%;
-  text-align: center;
-
+  margin: 2% 5% 2% 5%;
+  width: 90%;
 }
 
-.indexBtn:hover {
+.loginToplast{
+  padding-bottom: 5%;
+}
+
+.loginTop{
+  padding-top: 5%;
+  border-bottom: 2px solid grey;
+}
+
+.indexSignup{
+  background-color: rgb(16, 139, 28);
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 2% 25% 2% 25%;
+  width: 50%;
+}
+
+.indexLogin:hover {
+  background-color: rgb(4, 53, 202);
   color: white;
 }
 
-.indexCardCopyright {
- display: flex;
- justify-content: center;
- font-weight: bold;
- padding-top: 15px;
+.indexSignup:hover {
+  background-color: rgb(2, 106, 12);
+  color: white;
+}
+
+
+/* Footer */
+
+footer{
+  position: absolute; /* I don't care about other things */
+  bottom: 0; /* I want to be on the bottom... */
+  width: 100%;
+}
+
+.indexBottom{
+  color: white;
+  background-color: black;
+  height: 4vh;
+  padding: 0 20% 0 20%;
+}
+.indexBottom ul{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  list-style: none;
+}
+
+/* Sign up */
+
+label{
+  color: black;
+  
+}
+
+.containerIndex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+/* scrolling text */
+section{
+  min-height: 30vh;
+  color: black;
+  font-size: larger;
+  font-family: helvetica;
+  text-transform: uppercase;
+  overflow-x: hidden;
+}
+.scroller{
+  display:flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-width: 100%;
+}
+.news-message{
+  display : flex;
+  flex-shrink: 0;
+  height: 50px;
+  align-items: center;
+  animation: slide-left 60s linear infinite;
+}
+  .words{
+    font-size: 2.5em;
+    font-weight: 100;
+    padding-left: 0.5em;
+  }
+  @keyframes slide-left {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
 }
