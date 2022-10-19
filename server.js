@@ -11,6 +11,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const hangeulRoutes = require("./routes/hangeul");
+const path = require("path");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -22,6 +23,7 @@ require("./config/passport")(passport);
 connectDB();
 
 //Using EJS for views
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 //Static Folder
