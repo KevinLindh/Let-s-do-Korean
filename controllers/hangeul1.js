@@ -6,7 +6,7 @@ module.exports = {
   getHangeulTest: async (req, res) => {
     try {
       const hangeul = await HangeulTest.find({ "section": req.params.section });
-      res.render("hangeulTest", { hangeul: hangeul, user: req.user});
+      res.render("overview", { hangeul: hangeul, user: req.user});
     } catch (err) {
       console.log(err);
     }
