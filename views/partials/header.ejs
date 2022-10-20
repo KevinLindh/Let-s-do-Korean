@@ -29,14 +29,13 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="containerNav">
-      <nav>
+    <header>
+      <nav class="containerNav">
         <div class="headerItemContainer">
         <div class="navBtnContainer">
         <ul class="quickNavBtns">
-          <li>Study section</li>
+          <li><a href="/sections">Study</a></li>
           <li><a href="/profile">Profile</a></li>
-          <li><a href="/logout">Logout</a></li>
         </ul>
         </div>
         <div class="headerUser">
@@ -49,8 +48,17 @@
         </div>
          <div class="navModalDropdown hide">
           <ul class="dropdownUl">
+            <li><i>Signed in as</i></li>
+            <li class="navHiddenUserName"><strong><%- user.userName %></strong><br/></li>
             <li>Stages complete: <%= user.stage %></li>
             <li>Points: <%= user.points %></li>
+            <li class="recentResult">Recent result</li>
+            <% if(results.length > 0){ %>
+            <li><%= review[0].sections[review[0].sections.length-1] %>: <%= results[results.length-1].score %>%</li>
+            <% } else{ %>
+              <li>No Result</li>
+              <% } %>
+            <li class="navModalLogout"><a href="/logout">Logout</a></li>
           </ul>
          </div>
         </div>

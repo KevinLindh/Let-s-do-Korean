@@ -3,10 +3,13 @@
     padding: 0;
   }
 
+  a{
+    text-decoration: none;
+  }
   /* Set body and font family */
 
   body{
-    background: grey;
+    background-color: #afb8c1;
     font-family: 'Source Sans Pro', sans-serif;
     font-family: 'Source Serif 4', serif;
   }
@@ -38,7 +41,9 @@ span, a, label{
 
 .containerNav{
   height: 4vh;
-    background-color: white;
+    background-color: #3b3e41;
+    color: white;
+    font-weight: 500;
 }
 
 .navigation{
@@ -47,6 +52,7 @@ span, a, label{
 }
 
 .headerItemContainer {
+  height: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -57,7 +63,8 @@ span, a, label{
 /* Navigation buttons for moving around */
 
 .navBtnContainer{
-  width: 30%;
+  width: 18%;
+  height: 100%;
 }
 
 .quickNavBtns{
@@ -68,12 +75,23 @@ span, a, label{
   align-items: center;
   list-style: none;
   padding: 10px;
-  border: 2px solid grey;
 }
 
 .quickNavBtns li{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  border: 2px solid grey;
+  text-decoration: none;
+}
+
+.quickNavBtns li a{
+  color: white;
+}
+
+.quickNavBtns li a:hover{
+  color: rgb(133, 133, 133);
 }
 
 .navUsername {
@@ -89,17 +107,19 @@ span, a, label{
 
 .navModalDropdown {
   position: absolute;
-  background-color: white;
+  background-color: #FFFFFF;
+  border: 2px solid grey;
   color: black;
-  top: 40px;
-  padding: 100px 60px;
+  top: 4vh;
+  right: 2%;
   border-radius: 5px;
 }
 
 .dropdownUl{
+  padding: 30px 40px;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .flipArrow{
@@ -119,7 +139,44 @@ span, a, label{
   align-items: center;
 }
 
+.navHiddenUserName{
+  margin-bottom: 5%;
+  padding-bottom: 2%;
+  border-bottom: 2px solid #3b3e41;
+}
+
+.recentResult{
+  padding-top: 5%;
+  font-weight: 600;
+}
+
+.navModalLogout{
+  padding-top: 5%;
+}
+
 /* Study section */
+
+.openSection{
+  background-color: #03bb09;
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.openSection:hover{
+  cursor: pointer;
+  color: black;
+}
+
+.close{
+  background-color: red;
+}
 
 .inactiveLink {
     pointer-events: none;
@@ -380,8 +437,8 @@ footer{
 
 .indexBottom{
   color: black;
-  background-color: grey;
-  height: 4vh;
+  background-color: #828991;
+  height: 3vh;
   padding: 0 20% 0 20%;
 }
 .indexBottom ul{

@@ -1,12 +1,15 @@
 const HangeulTest = require("../models/Hangeul1");
 const User = require("../models/User");
-const Result = require("../models/Result");
+const Results = require("../models/Result");
+const Reviews = require("../models/Reviews")
 
 module.exports = {
   getHangeulTest: async (req, res) => {
     try {
       const hangeul = await HangeulTest.find({ "section": req.params.section });
-      res.render("overview", { hangeul: hangeul, user: req.user});
+      const results = await Results.find({user: req.user.id})
+      const review = await Reviews.find();
+      res.render("overview", { review, results, hangeul: hangeul, user: req.user});
     } catch (err) {
       console.log(err);
     }
@@ -14,8 +17,9 @@ module.exports = {
   getHangeulReview: async (req, res) => {
     try {
       const hangeul = await HangeulTest.find({ "section": req.params.section });
-      console.log(hangeul[0].section)
-      res.render("testing", {hangeul: hangeul, user: req.user });
+      const results = await Results.find({user: req.user.id})
+      const review = await Reviews.find();
+      res.render("testing", {review, results, hangeul: hangeul, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -23,7 +27,7 @@ module.exports = {
   createHangeulResult: async (req, res) => {
     try {
       console.log(req.body.test);
-       await Result.create({
+       await Results.create({
          test: req.body.test,
          score: req.body.score,
          user: req.user.id,

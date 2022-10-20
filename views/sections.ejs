@@ -1,8 +1,16 @@
 <%- include('partials/header') -%>
 <main>
   <div class="container">
+    <h1>Learning path portion</h1>
+    <p>The learning path section aims to give a clear progression in korean language learning. <br/>
+        You will get to review a certain amount of words, once all are memorized you will have the option to go to the testing portion.<br/>
+        Within the testing section you must score 60% or over in order to pass. <br/>
+        Passing a section will open up the subsequent section for review. <br />
+        Good luck on your learning journey!
+    </p>
     <h2>Sections Completed: <%- user.stage %> / <%- review[0].sections.length %></h2>
-      <ul class="row list-unstyled">
+      <a class="openSection" onclick="openLearning()" id="learningBtn">Open this section &#x2304;</a>
+      <ul class="row list-unstyled hide" id="learningSection">
         <% for(let i = 0; i < review[0].sections.length; i++){ %>
           <% if(i <= user.stage){ %>
           <a class="goToSection" href="/hangeul/<%= i %>">Section <%= i+1 %>: <%= review[0].sections[i] %></a>
@@ -13,5 +21,20 @@
       </ul>
   </div>  
 </main>
+<script> function openLearning(){
+  const open = document.getElementById("learningSection");
+  const button = document.getElementById("learningBtn");
+  if(button.classList.contains("close")){
+    button.innerHTML = "Open this section &#x2304;"
+    button.classList.remove("close");
+    open.classList.add("hide");
+  } else {
+    button.classList.add("close");
+    button.innerHTML = "Close this section &#x2716;";
+    console.log(button.classList)
+    open.classList.remove("hide");
+  }
+  }
+</script>
 </body>
 </html>

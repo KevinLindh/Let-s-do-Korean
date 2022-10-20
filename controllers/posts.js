@@ -5,7 +5,6 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const review = await Reviews.find();
-      console.log(req.user.id)
       const results = await Results.find({user: req.user.id})
       res.render("profile", { results, review, user: req.user });
     } catch (err) {
@@ -15,7 +14,8 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const review = await Reviews.find();
-      res.render("sections", {review: review, user: req.user});
+      const results = await Results.find({user: req.user.id})
+      res.render("sections", {results, review: review, user: req.user});
     } catch (err) {
       console.log(err);
     }
