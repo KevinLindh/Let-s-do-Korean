@@ -21,16 +21,16 @@ The backend is built up of clear naming schemes in order to be able to add on po
 
 ## Lessons Learned:
 
-#Progression
+# Progression
 Dealing with a project where progression is a large part of the objective. Implementing something like this required some "clever" thinking to implement it in a way which would be easy to understand while still being efficient.
 
-#Fullstack
+# Fullstack
 Because this project is a fullstack application all of the components needed to be connected in the right way. So there were a certain amount of issues in how the backend would interact with the frontend. Which required going through the documentation and problem-solving for certain specific issues 
 
-#Deploying
+# Deploying
 During the development of this project Heroku decided to discontinue their free hosting tier. This required me to go through some of the options which offered a good value. I settled on Railway for their good standing in the community and reasonable hosting fee. There were some issues with the way files were initally named, so some adjustments were required according to the documentation that Railway has.
 
-##Additional features
+## Additional features
 
 The core of the app is up and functioning. There are however some features I wish to implement later on
 <ul>
