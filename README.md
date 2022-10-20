@@ -2,6 +2,8 @@
 
 A repository for the fullstack application Let's do Korean. The site aims to make it easier for individuals to learn the basics and improving their understanding of the korean language, while having a fun time doing so.
 
+![letsdokorean](https://user-images.githubusercontent.com/94518833/197002200-e0e1ef01-76e2-490a-a236-a3f7579b8b79.gif)
+
 ## How It's Made:
 
 **Tech used:** 
