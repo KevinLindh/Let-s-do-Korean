@@ -34,18 +34,11 @@ During the development of this project Heroku decided to discontinue their free 
 
 The core of the app is up and functioning. There are however some features I wish to implement later on
 <ul>
-<li></li>
+  <li>Improve styling</li>
+  <li>Add more sections to study</li>
+  <li>Add a leadership board (using the points)</li>
+  <li>Improve test to make it easier to do</li>
+  <li>Add functionality for adding friends?</li>
+  <li>Create your own study sections (shareable?), How to moderate if allowing user input?</li>
+  <li>Add profile images?</li>
 </ul>
-make interface look better
-Add more sections to study
-add a leadership board
-Improve test to make it easier to do
-Make studying easier in the section easier (implement js scroller)
-Make head section look better
-
-
-Might add---
-Add functionality for adding friends?
-create your own study sections (shareable?)
-How to moderate if allowing user input
-Add profile images?
