@@ -154,6 +154,44 @@ span, a, label{
   padding-top: 5%;
 }
 
+/* profile */
+
+.profile{
+  padding: 2% 25% 2% 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.splitIntoThree{
+  padding-top: 1%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.imageLeft{
+  padding: 0%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.textDescription{
+  text-align: left;
+}
+
+.whatYouWillLearn{
+  padding-top: 5%;
+  text-align: center;
+}
+
+.middleImage{
+  padding: 5%;
+}
+
 /* Study section */
 
 .openSection{
@@ -223,7 +261,6 @@ span, a, label{
     align-items: center;
     border: 2px solid black;
     border-radius: 15px;
-    height: ;
 }
 
 .hangeul{
@@ -367,64 +404,23 @@ flex-wrap: wrap;
 
 /* sections css */
 .sectionsBtn {
-  appearance: none;
-  background-color: #0d24fa;
-  color: white;
-  border-width: 0;
-  box-sizing: border-box;
+  background-color: white;
+  color: black;
   cursor: pointer;
-  display: inline-block;
+  margin-top: 5%;
   font-family: Clarkson,Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   letter-spacing: 0;
   line-height: 1em;
-  margin: 0;
-  opacity: 1;
-  outline: 0;
   padding: 1.5em 2.2em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: geometricprecision;
-  text-transform: uppercase;
-  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
   border-radius: 15px;
+  border: 2px solid black;
 }
 
-.sectionsBtn:before {
-  animation: opacityFallbackOut .5s step-end forwards;
-  backface-visibility: hidden;
-  background-color: #284feb;
-  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-  border-radius: 15px;
-}
-
-.sectionsBtn:hover:before {
-  animation: opacityFallbackIn 0s step-start forwards;
-  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-}
-
-.sectionsBtn:after {
-  background-color: #FFFFFF;
-}
-
-.sectionsBtn span {
-  z-index: 1;
-  position: relative;
+.sectionsBtn:hover{
+  background-color: rgb(65, 65, 255);
+  color: white;
 }
 
 /* Footer */
