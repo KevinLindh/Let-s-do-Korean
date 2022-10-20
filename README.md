@@ -13,6 +13,25 @@ A repository for the fullstack application Let's do Korean. The site aims to mak
 <img src="https://img.shields.io/static/v1?label=|&message=MONGODB&color=green&style=plastic&logo=mongodb"/>
 <img src="https://img.shields.io/static/v1?label=|&message=RAILWAY&color=white&style=plastic&logo=railway"/>
 
+## Demo Login
+
+Demo Email: demo@demo.com
+
+Demo password: demodemo
+
+## Installation
+
+    Clone repo
+    run npm install
+    update DATABASE_URL in config/database
+
+## Usage
+
+    run node server.js or npm start
+    Update PORT variable (for example 8000)
+    Navigate to localhost:8000
+
+
 ## Optimizations
 
 Structured using the MVC architecture. Which seperates all the components into better and more maintainable components. Through using MVC it will make any changes easier to implement while simplifying troubleshooting and bug fixing (should there be a need for this).
