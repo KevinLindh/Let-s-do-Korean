@@ -58,7 +58,7 @@ label {
 /* Set body and font family */
 
 body {
-  background-color: #afb8c1;
+  background-color: black;
 }
 
 .profileAvatar {
@@ -72,7 +72,8 @@ body {
 main {
   background: #ffffff;
   color: #24292f;
-  min-height: 95vh;
+  height: 100%;
+  min-height: 88vh;
 }
 
 ul {
@@ -89,6 +90,9 @@ label {
 /* Navigation */
 
 .containerNav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 4vh;
   background-color: #3b3e41;
   color: white;
@@ -205,7 +209,7 @@ label {
 /* profile */
 
 .profile {
-  padding: 2% 25% 2% 25%;
+  padding: 3% 25% 2% 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -486,7 +490,6 @@ label {
 /* Footer */
 
 footer {
-  position: absolute; /* I don't care about other things */
   bottom: 0; /* I want to be on the bottom... */
   width: 100%;
 }

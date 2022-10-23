@@ -46,6 +46,8 @@ b {
 }
 main {
   background: rgb(215, 214, 214);
+  min-height: 95vh;
+  height: 100%;
 }
 
 html {
