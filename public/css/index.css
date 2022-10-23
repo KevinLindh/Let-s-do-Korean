@@ -1,32 +1,67 @@
-
 * {
-    margin: 0;
-    padding: 0;
-  }
-
-body{
-    background: black;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-family: 'Source Serif 4', serif;
-}
-
-main{
-  background: rgb(215, 214, 214);
-}
-
-html{
-  min-height: 100vh;
-}
-
-ul{
   margin: 0;
   padding: 0;
 }
 
-span, a, label{
-  text-transform: none;
+body {
+  background: black;
 }
 
+p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+}
+h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+}
+h3 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+}
+h4 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+}
+a {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+span {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+li {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+b {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+}
+main {
+  background: rgb(215, 214, 214);
+}
+
+html {
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+span,
+a,
+label {
+  text-transform: none;
+}
 
 /* index */
 
@@ -38,7 +73,7 @@ span, a, label{
   justify-content: center;
 }
 
-.indexDescription{
+.indexDescription {
   padding: 5%;
   min-height: 30vh;
   max-width: 50%;
@@ -47,13 +82,13 @@ span, a, label{
   justify-content: space-around;
 }
 
-.indexH1{
+.indexH1 {
   font-weight: 900;
   font-size: 3.5rem;
   margin-bottom: 5%;
 }
 
-.indexDescription p{
+.indexDescription p {
   font-weight: 500;
   font-size: 1.25rem;
 }
@@ -76,7 +111,7 @@ span, a, label{
   border-radius: 10px;
 }
 
-.indexLogin{
+.indexLogin {
   background-color: rgb(2, 61, 238);
   padding: 8px 16px;
   color: white;
@@ -86,16 +121,16 @@ span, a, label{
   width: 90%;
 }
 
-.loginToplast{
+.loginToplast {
   padding-bottom: 5%;
 }
 
-.loginTop{
+.loginTop {
   padding-top: 5%;
   border-bottom: 2px solid grey;
 }
 
-.indexSignup{
+.indexSignup {
   background-color: rgb(16, 139, 28);
   padding: 8px 16px;
   color: white;
@@ -115,89 +150,89 @@ span, a, label{
   color: white;
 }
 
-
 /* Footer */
 
-footer{
+footer {
   position: absolute; /* I don't care about other things */
   bottom: 0; /* I want to be on the bottom... */
   width: 100%;
 }
 
-.indexBottom{
+.indexBottom {
   color: white;
   background-color: black;
-  height: 3vh;
-  padding: 0 20% 0 20%;
-}
-.indexBottom ul{
+  padding: 0 40% 0 40%;
   width: 100%;
-  height: 100%;
   align-items: center;
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
+  list-style: none;
+  font-size: 12px;
+  text-align: center;
+}
+
+.indexBottom li {
   list-style: none;
 }
 
-.footerSocials{
-  width: 15%;
+.footerHeader {
+  font-size: 24px;
+  text-align: center;
+}
+
+.footerSocials {
   display: flex;
-  flex-direction: row;
+  width: 150px;
   justify-content: space-around;
   align-items: center;
 }
 
 /* Sign up */
 
-label{
+label {
   color: black;
-  
 }
 
-.containerIndex{
+.containerIndex {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-
-
 /* scrolling text */
-section{
+section {
   min-height: 30vh;
   color: black;
   font-size: larger;
-  font-family: helvetica;
   text-transform: uppercase;
   overflow-x: hidden;
 }
-.scroller{
-  display:flex;
+.scroller {
+  display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
   min-width: 100%;
 }
-.news-message{
-  display : flex;
+.news-message {
+  display: flex;
   flex-shrink: 0;
   height: 50px;
   align-items: center;
   animation: slide-left 60s linear infinite;
 }
-  .words{
-    font-size: 2.5em;
-    font-weight: 100;
-    padding-left: 0.5em;
-  }
-  @keyframes slide-left {
+.words {
+  font-size: 2.5em;
+  font-weight: 100;
+  padding-left: 0.5em;
+}
+@keyframes slide-left {
   from {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   to {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
