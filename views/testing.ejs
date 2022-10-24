@@ -46,9 +46,9 @@
                 <% let splitted = theVal.split(" ") %>
                 <% let insertVal = splitted.join("_") %>
                 <% if(j === 0){ %>
-                  <a class="testBtn" id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
+                  <a class="testBtn noSelect" id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
                 <% } else { %>
-                <a class="testBtn" id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
+                <a class="testBtn noSelect" id=select<%= i %><%= j %> value=<%= insertVal %>> <%= hangeul[0].test[fourRandom[j]][1] %> </a>
                 <% } %>
               <% } %>
             </div>
@@ -69,7 +69,7 @@
             <span id="scoreShow">Score: </span>
         </ul>
         <div class="centerButtons">
-        <a id="testResult" onclick="grab()" class="hangeulTest">Submit answers</a>
+        <a id="testResult" onclick="grab()" class="hangeulTest noSelect">Submit answers</a>
         <form action="/hangeul/result" enctype="multipart/form-data" method="POST">
           <div class="hide">
               <label for="test">Test</label>

@@ -1,87 +1,98 @@
 <%- include('partials/header') -%>
 <main>
-<% let current = 1 %>
-<% function next(){ return console.log(2)} %>
-<div class="container">
+  <% let current = 1 %> <% function next(){ return console.log(2)} %>
+  <div class="container">
     <div class="middle">
       <div class="hangeulRev">
-      <h2 class="hangeulh2">Review Hangeul <br><i style="font-size: 20px;">After all words have been memorized you can proceed to the testing phase</i></h2>
-    </div>
+        <h2 class="hangeulh2">
+          Review Hangeul <br /><i style="font-size: 20px"
+            >After all words have been memorized you can proceed to the testing
+            phase</i
+          >
+        </h2>
+      </div>
       <div class="hangeulDiv">
         <a onclick="left()" class="left"><</a>
-          <div class="hangeul">
-            <a class="hangeulTest hide" href="/hangeul/test/<%= hangeul[0].section %>">Go to test</a>
-            <span id="current"></span>
-            <h2 id="korean"><%- hangeul[0].test[1][0] %></h2>
-            <h2 id="english" class=""><%- hangeul[0].test[1][1] %></h2>
-            <p id="sound" class=""><%- hangeul[0].test[1][2] %></p>
-            <a id="addToMemorized" class="hangeulTest" onclick="addToMemorized()">Add to memorized</a>
-          </div>
-          <a onclick="right()" class="right">></a>
+        <div class="hangeul">
+          <a
+            class="hangeulTest hide noSelect"
+            href="/hangeul/test/<%= hangeul[0].section %>"
+            >Go to test</a
+          >
+          <span id="current"></span>
+          <h2 id="korean"><%- hangeul[0].test[1][0] %></h2>
+          <h2 id="english" class=""><%- hangeul[0].test[1][1] %></h2>
+          <p id="sound" class=""><%- hangeul[0].test[1][2] %></p>
+          <a
+            id="addToMemorized"
+            class="hangeulTest noSelect"
+            onclick="addToMemorized()"
+            >Add to memorized</a
+          >
+        </div>
+        <a onclick="right()" class="right">></a>
       </div>
     </div>
     <div>
       <h3 class="text-center">List of memorized words</h3>
-      <ul class="memorizedUL" id="memorized">
-
-      </ul>
+      <ul class="memorizedUL" id="memorized"></ul>
     </div>
-</div>
-<script>
-  const korean = <%- JSON.stringify(hangeul[0].test) %>;
-   let loopThrough = Object.keys(korean);
-   let count = 0;
-   console.log(loopThrough)
-   function right(){
-    if(count === loopThrough.length-1){
-    } else {
-      count++;
-    }
-    document.querySelector(`#current`).innerHTML = `${count+1}/${loopThrough.length}`;
-    document.querySelector(`#korean`).innerHTML = korean[loopThrough[count]][0];
-    document.querySelector(`#english`).innerHTML = korean[loopThrough[count]][1];
-    document.querySelector(`#sound`).innerHTML = korean[loopThrough[count]][2];
-   }
-   function left(){
-    if(count === 0){
-    } else {
-      count--;
-    }
-    console.log(count)
-    document.querySelector(`#current`).innerHTML = `${count+1}/${loopThrough.length}`;
-    document.querySelector(`#korean`).innerHTML = korean[loopThrough[count]][0];
-    document.querySelector(`#english`).innerHTML = korean[loopThrough[count]][1];
-    document.querySelector(`#sound`).innerHTML = korean[loopThrough[count]][2];
-   }
-   document.querySelector(`#current`).innerHTML = `${count+1}/${loopThrough.length}`;
-
-   //adding to memorized field and remove from review
-   let memorized = 1
-   function addToMemorized(){
-    let koreanWord = document.querySelector(`#korean`).innerHTML;
-    let english = document.querySelector(`#english`).innerHTML;
-    let insert = document.getElementById("memorized"); 
-    let list = document.createElement("li");
-    list = koreanWord + " - " + english;
-    insert.innerHTML += `<li class="memorizedList"> ${list} </li>`;
-    count === loopThrough.length-1 ? loopThrough.pop() : loopThrough.splice(count, 1);
-    //give option to go to test
-    if(loopThrough.length === 0){
-      document.querySelector(`#korean`).classList.add("hide");
-      document.querySelector(`#current`).classList.add("hide");
-      document.querySelector(`#english`).classList.add("hide");
-      document.querySelector(`#sound`).classList.add("hide");
-      document.querySelector(`#addToMemorized`).classList.add("hide");
-      document.querySelector(`.hangeulTest`).classList.remove("hide");
-    } else {
-      if(count === loopThrough.length){
-        left();
+  </div>
+  <script>
+    const korean = <%- JSON.stringify(hangeul[0].test) %>;
+     let loopThrough = Object.keys(korean);
+     let count = 0;
+     console.log(loopThrough)
+     function right(){
+      if(count === loopThrough.length-1){
+      } else {
+        count++;
+      }
+      document.querySelector(`#current`).innerHTML = `${count+1}/${loopThrough.length}`;
+      document.querySelector(`#korean`).innerHTML = korean[loopThrough[count]][0];
+      document.querySelector(`#english`).innerHTML = korean[loopThrough[count]][1];
+      document.querySelector(`#sound`).innerHTML = korean[loopThrough[count]][2];
+     }
+     function left(){
+      if(count === 0){
       } else {
         count--;
-        right();
       }
-    }
-   }
-</script>
+      console.log(count)
+      document.querySelector(`#current`).innerHTML = `${count+1}/${loopThrough.length}`;
+      document.querySelector(`#korean`).innerHTML = korean[loopThrough[count]][0];
+      document.querySelector(`#english`).innerHTML = korean[loopThrough[count]][1];
+      document.querySelector(`#sound`).innerHTML = korean[loopThrough[count]][2];
+     }
+     document.querySelector(`#current`).innerHTML = `${count+1}/${loopThrough.length}`;
+
+     //adding to memorized field and remove from review
+     let memorized = 1
+     function addToMemorized(){
+      let koreanWord = document.querySelector(`#korean`).innerHTML;
+      let english = document.querySelector(`#english`).innerHTML;
+      let insert = document.getElementById("memorized");
+      let list = document.createElement("li");
+      list = koreanWord + " - " + english;
+      insert.innerHTML += `<li class="memorizedList"> ${list} </li>`;
+      count === loopThrough.length-1 ? loopThrough.pop() : loopThrough.splice(count, 1);
+      //give option to go to test
+      if(loopThrough.length === 0){
+        document.querySelector(`#korean`).classList.add("hide");
+        document.querySelector(`#current`).classList.add("hide");
+        document.querySelector(`#english`).classList.add("hide");
+        document.querySelector(`#sound`).classList.add("hide");
+        document.querySelector(`#addToMemorized`).classList.add("hide");
+        document.querySelector(`.hangeulTest`).classList.remove("hide");
+      } else {
+        if(count === loopThrough.length){
+          left();
+        } else {
+          count--;
+          right();
+        }
+      }
+     }
+  </script>
 </main>
 <%- include('partials/footer') -%>
