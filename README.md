@@ -1,4 +1,4 @@
-# Let's do Korean: <a target="_blank" href="https://let-s-do-korean-production.up.railway.app/" STYLE="text-decoration:line-through">Visit Here</a> 🛑 Currently unhosted
+# Let's do Korean: <!-- <a target="_blank" href="https://let-s-do-korean-production.up.railway.app/">Visit Here</a> -->🛑 Currently unhosted
 
 A repository for the fullstack application Let's do Korean. The site aims to make it easier for individuals to learn the basics and improving their understanding of the korean language, while having a fun time doing so.
 
