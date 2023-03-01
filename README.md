@@ -51,6 +51,8 @@ Because this project is a fullstack application all of the components needed to 
 # Deploying
 During the development of this project Heroku decided to discontinue their free hosting tier. This required me to go through some of the options which offered a good value. I settled on Railway for their good standing in the community and reasonable hosting fee. There were some issues with the way files were initally named, so some adjustments were required according to the documentation that Railway has.
 
+<!-- comment -->
+
 ## Additional features
 
 The core of the app is up and functioning. There are however some features I wish to implement later on
